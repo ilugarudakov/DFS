@@ -9,7 +9,4 @@ RUN apk add --no-cache bash git unzip icu-data-full icu-dev libzip-dev oniguruma
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
-
-# --- Prepare writable dirs (host bind mount will override perms anyway) ---
-# Comments: keep dirs present; runtime user will be set by docker-compose 'user:'.
 RUN mkdir -p storage bootstrap/cache

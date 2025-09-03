@@ -17,27 +17,19 @@
 <body>
 <h1>Позиція сайту в Google (DataForSEO)</h1>
 
-<form method="POST" action="{{ route('home') }}">
+<form method="POST" action="{{ route('search') }}">
     @csrf
     <label>Пошукове слово</label>
-    <input name="keyword"
-           value="{{ old('keyword', 'dataforseo api') }}"
-           required />
+    <input name="keyword" value="{{ old('keyword') }}" required />
 
     <label>Сайт (домен або URL)</label>
-    <input name="site"
-           value="{{ old('site', 'dataforseo.com') }}"
-           required />
+    <input name="site" value="{{ old('site') }}" required />
 
     <label>Локація</label>
-    <input name="location"
-           value="{{ old('location', 'Kyiv,Kyiv City,Ukraine') }}"
-           required />
+    <input name="location" value="{{ old('location') }}" required />
 
     <label>Мова</label>
-    <input name="language"
-           value="{{ old('language', 'uk') }}"
-           required />
+    <input name="language" value="{{ old('language') }}" required />
 
     <button type="submit">Пошук</button>
 </form>
@@ -54,7 +46,7 @@
 @endif
 
 @isset($error)
-    <div class="card"><strong>Помилка запиту:</strong> {{ $error }}</div>
+    <div class="card"><strong>Помилка:</strong> {{ $error }}</div>
 @endisset
 
 @isset($result)
@@ -63,7 +55,7 @@
             <h3>Знайдено! Ранг (organic): <code>{{ $result['rank'] }}</code></h3>
         @else
             <h3>Сайт не знайдено в органічній видачі.</h3>
-            <div class="muted">Перевірте ключове слово, локацію та мову.</div>
+            <div class="muted">Перевірте пошукове слово, локацію та мову.</div>
         @endif
 
         @if (!empty($result['checkUrl']))
