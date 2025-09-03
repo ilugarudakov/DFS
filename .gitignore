@@ -1,0 +1,38 @@
+### Laravel ###
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+/storage/app/public
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*.php
+
+
+.env
+.env.*.local
+.env.local
+.phpunit.result.cache
+
+/storage/logs/*
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpstorm.meta.php
+
+### Composer & NPM/Yarn lock files (опционально) ###
+# composer.lock
+# package-lock.json
+# yarn.lock
+
+### IDE / Editor ###
+.idea/
+*.iml
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+/docker/dbdata
+/.docker
